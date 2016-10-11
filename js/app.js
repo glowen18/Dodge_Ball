@@ -1,13 +1,14 @@
 // *********** Draw the playground box **************
 var canvas = $('#myCanvas')[0];
 var ctx = canvas.getContext('2d');
-var x = canvas.width/2;
-var y = canvas.height-30;
+var newBalls = [];
+var x = randomNumber();
+var y = randomNumber();
 var dx = 2;
 var dy = -2;
 
 // ******** DRAW the BALL ********//
-function drawBall() {
+function createBall() {
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = '#ff0000';
@@ -18,36 +19,29 @@ function drawBall() {
 //******** Redraw the moving ball ************//
 function reDraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
+    createBall();
+
+// ******** Move the Ball *************//
+  if(x + dx > canvas.width || x + dx < 0) {
+      dx = -dx;
+    }
+    if(y + dy > canvas.height || y + dy < 0) {
+      dy = -dy;
+    } else if (y + dy > canvas.height) {
+        alert("Game Over! :/(")
+          document.location.reload();
+    }
     x += dx;
-    y += dy;  
+    y += dy;
   }
-setInterval(reDraw, 10);
+  setInterval(reDraw, 10);
+
+  function randomNumber(){
+    return Math.floor((Math.random() * 480) + 1);
+  }
 
 
-// ******** Function to remove the trail of the ball
-// // //   // {
-// // //   //
-// // //   // }
-// // //
-// // // ******** Move the Ball
-// // //   if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
-// // //     dx = -dx;
-// // //   }
-// // //
-// // //   if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
-// // //     dy = -dy;
-// // //   } else if (y + dy > canvas.height-ballRadius) {
-// // //     alert("Game Over! :/(")
-// // //     document.location.reload();
-// // //   }
-// // //     x += dx;
-// // //     y += dy;
-// // //   }
-// // //
-// // //   setInterval(draw, 10);
-// // //
-// // // })
+
 
 
 // //create the circles on the canvas
