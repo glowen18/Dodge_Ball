@@ -12,7 +12,7 @@ h1 {
 
 #start {
   border-radius: 25px;
-  color: #175917;
+  color: #461191;
   display:inline-block;
   font-size: 24px;
 }
@@ -25,4 +25,8 @@ h1 {
   margin: 25px;
   width: 85%;
   height: auto;
+}
+
+#myGuy {
+  color: black;
 }

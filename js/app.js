@@ -6,9 +6,17 @@ var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
 var dy = -2;
+var img = new Image();
 
+img.src = "./assets/myguy.jpg"
 
 //******** START GAME *********//
+function startGame(){
+  setInterval(reDraw, 10);
+  $('#start').off();
+};
+
+
 
 //create the circles on the canvas
 function drawGrid () {
@@ -77,12 +85,17 @@ function collisionDetection() {
     }
   }
 }
+function drawGuy() {
+  ctx.drawImage(img, 280, 280, 50, 50)
+}
 
 //******** Redraw the moving ball ************//
 function reDraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
     createBall();
     drawGrid();
+    drawGuy();
+    
 
 // ******** Move the Ball *************//
   if(x + dx > canvas.width || x + dx < 0) {
@@ -111,11 +124,6 @@ function reDraw() {
     x += dx;
     y += dy;
   }
-
-function startGame(){
-  setInterval(reDraw, 10);
-  $('#start').off();
-};
 
   function randomNumber(){
     return Math.floor((Math.random() * 480) + 1);
