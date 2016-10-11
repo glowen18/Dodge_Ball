@@ -1,7 +1,12 @@
 body {
-  background-color: orange;
+  background-color: #00aaaa;
 }
 
 #myCanvas {
-  border: 4px solid #0000ff;
+  position: center;
+  background: #ddd;
+  display: block;
+  border: 4px solid #00f;
+  margin: auto;
+  width: 100%;
 }
