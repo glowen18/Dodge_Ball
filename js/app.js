@@ -3,8 +3,9 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d'); //create canvas
 
 
-//create the circles on the canvas
 
+//create the circles on the canvas
+function grid () {
   ctx.beginPath();
   ctx.arc(200, 180, 25, 0, 2*Math.PI, true);
   ctx.closePath();
@@ -49,48 +50,80 @@ var ctx = canvas.getContext('2d'); //create canvas
   ctx.arc(400, 420, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
+}
+// grid();
 
   // *********** Draw a BALL going across the screen **************
-
   var x = canvas.width-0;
   var y = canvas.height-300;
   var dx = -6;
   var dy = 0;
-  var rightPressed = false;
-  var leftPressed = false;
 
-  function drawBall() {
-    ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI*2);
-    ctx.fillStyle = '#0064ee';
-    ctx.fill();
-    ctx.closePath();
-  }
+  function drawBall(d1) {
+    switch(d1) {
+      case 1:
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI*2);
+        ctx.fillStyle = '#0064ee';
+        ctx.fill();
+        ctx.closePath();
+
+              }
+           }
+  //     case 2:
+  //        x = canvas.width-0;
+  //        y = canvas.height-200;
+  //        dx = -6;
+  //        dy = 0;
+   //
+   //
+  //       ctx.beginPath();
+  //       ctx.arc(x, y, 10, 0, Math.PI*2);
+  //       ctx.fillStyle = '#0064ee';
+  //       ctx.fill();
+  //       ctx.closePath();
+   //
+   //
+  //     }
+  //  }
 
   function draw() {
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    grid();
+    drawBall(1);
     x += dx;
     y += dy;
   }
-
   setInterval(draw, 10);
 
+draw();
+
+  //******** Redraw the moving ball
+// function moveBall () {
+//   var reDraw = function() {
+//     context.clearRect(x,y, canvas.width, canvas.height);
+//
+//     context.beginPath();
+//     context.rect()
+//   }
+// }
+
+
   //Draw a person to move around and dodge the ballRadius
-  var ballerHeight = 75;
-  var ballerWidth = 10;
-  var ballerX = (canvas.height-ballerHeight)/2;
-
-  function drawBaller() {
-    ctx.beginPath();
-    ctx.rect(ballerX, canvas.width-ballerWidth, ballerHeight, ballerWidth);
-    ctx.fillStyle = '#ff99dd';
-    ctx.fill();
-    ctx.closePath()
-  }
-
-
-
+  // var ballerHeight = 75;
+  // var ballerWidth = 10;
+  // var ballerX = (canvas.height-ballerHeight)/2;
+  //
+  // function drawBaller() {
+  //   ctx.beginPath();
+  //   ctx.rect(ballerX, canvas.width-ballerWidth, ballerHeight, ballerWidth);
+  //   ctx.fillStyle = '#ff99dd';
+  //   ctx.fill();
+  //   ctx.closePath()
+  // }
+  //
+  //
+  //
 
 
 
