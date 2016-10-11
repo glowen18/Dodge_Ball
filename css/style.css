@@ -2,11 +2,27 @@ body {
   background-color: #00aaaa;
 }
 
+h1 {
+  color: #461191;
+  font-size: 36px;
+  font-variant: small-caps;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#start {
+  border-radius: 25px;
+  color: #175917;
+  display:inline-block;
+  font-size: 24px;
+}
+
 #myCanvas {
-  position: center;
-  background: #ddd;
+  background-color: #cc33f1;
+  border: 10px solid #00f;
+  border-radius: 20px;
   display: block;
-  border: 4px solid #00f;
-  margin: auto;
-  width: 100%;
+  margin: 25px;
+  width: 85%;
+  height: auto;
 }

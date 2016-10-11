@@ -1,13 +1,16 @@
 // *********** Draw the playground box **************
 var canvas = $('#myCanvas')[0];
 var ctx = canvas.getContext('2d');
+var start = $('#start').on('click', startGame);
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
 var dy = -2;
 
 
-// //create the circles on the canvas
+//******** START GAME *********//
+
+//create the circles on the canvas
 function drawGrid () {
   ctx.beginPath();
   ctx.arc(200, 180, 25, 0, 2*Math.PI, true);
@@ -61,7 +64,7 @@ drawGrid();
 function createBall() {
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
-  ctx.fillStyle = '#ff0000';
+  ctx.fillStyle = '#00ddff';
   ctx.fill();
   ctx.closePath();
 }
@@ -108,7 +111,11 @@ function reDraw() {
     x += dx;
     y += dy;
   }
+
+function startGame(){
   setInterval(reDraw, 10);
+  $('#start').off();
+};
 
   function randomNumber(){
     return Math.floor((Math.random() * 480) + 1);
