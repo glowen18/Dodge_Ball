@@ -2,22 +2,34 @@
 var canvas = $('#myCanvas')[0];
 var ctx = canvas.getContext('2d');
 var start = $('#start').on('click', startGame);
+var width = $('#myCanvas').width();
+var height = $('#myCanvas').height();
+
+// var img = new Image();
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
 var dy = -2;
-var img = new Image();
 
-img.src = "./assets/myguy.jpg"
+var rightKey = false;
+var leftKey = false;
+var upKey = false;
+var downKey = false;
+var block_x = canvas.width / 2 - 15;
+var block_y = canvas.height / 2 - 15;
+var block_h = 30;
+var block_w = 30;
 
-//******** START GAME *********//
+// img.src = "./assets/myguy.jpg"
+
+//******** START GAME ***********//
 function startGame(){
-  setInterval(reDraw, 10);
+  setInterval(reDraw, 25);
   $('#start').off();
 };
 
 //create the circles on the canvas
-function drawGrid () {
+function drawGrid() {
   ctx.beginPath();
   ctx.arc(200, 180, 25, 0, 2*Math.PI, true);
   ctx.lineWidth = 5;
@@ -67,7 +79,7 @@ function drawGrid () {
 drawGrid();
 
 // ******** DRAW the BALL ********//
-function createBall() {
+function createBall(){
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = '#00ddff';
@@ -75,54 +87,18 @@ function createBall() {
   ctx.closePath();
 }
 
-//*********** COLLISION DETECTION ************//
-function collisionDetection() {
-  for(i = 0; i < canvas.width; i++) {
-    for(j = 0; j < canvas.height; j++) {
-      var ij = collide[i][j];
-    }
-  }
-}
-function drawGuy() {
-  ctx.drawImage(img, 280, 280, 50, 50)
-}
+// function drawGuy(){
+//   ctx.drawImage(img, 280, 280, 50, 50)
+// }
 
-  $(document).ready(function(){
-    $("#myGuy").focus();
-    $("#myGuy").on('keydown', function(event){
-      switch (event.which){
-        case 37:
-          $('#myGuy').stop().animate({
-            left: '-=10'
-          }); //left arrow key
-          break;
-        case 38:
-          $('#myGuy').stop().animate({
-            top: '-=10'
-          }); //up arrow key
-          break;
-        case 39:
-          $('#myGuy').stop().animate({
-            left: '+=10'
-          })  // right arrow key
-          break;
-        case 40:
-          $('#myGuy').stop().animate({
-            top: '+=10'
-          }); //bottom arrow key
-          break;
-    }
-  });
-});
 
-//******** Redraw the moving ball ************//
+// ******** ReDraw MOVING the BALL ********//
 function reDraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-    createBall();
-    drawGrid();
-    drawGuy();
-
-
+  createBall();
+  drawGrid();
+  drawBlock();
+  // drawGuy();
 // ******** Move the Ball *************//
   if(x + dx > canvas.width || x + dx < 0) {
     console.log('hit the side');
@@ -149,8 +125,36 @@ function reDraw() {
     }
     x += dx;
     y += dy;
-  }
+    if (rightKey && block_x + block_w <= 410) block_x += 10;
+  else if (leftKey && block_x > 186) block_x -= 10;
+    if (upKey && block_y > 170) block_y -= 10;
+    else if (downKey && block_y < 405) block_y += 10;
 
-  function randomNumber(){
-    return Math.floor((Math.random() * 480) + 1);
   }
+function randomNumber(){
+  return Math.floor((Math.random() * 480) + 1);
+}
+
+function drawBlock(){
+  ctx.fillRect(block_x,block_y,block_w,block_h);
+}
+
+function onKeyDown(evt) {
+  if (evt.keyCode == 39) rightKey = true;
+  else if (evt.keyCode == 37) leftKey = true;
+  if (evt.keyCode == 38) upKey = true;
+  else if (evt.keyCode == 40) downKey = true;
+}
+
+function onKeyUp(evt) {
+  if (evt.keyCode == 39) rightKey = false;
+  else if (evt.keyCode == 37) leftKey = false;
+  if (evt.keyCode == 38) upKey = false;
+  else if (evt.keyCode == 40) downKey = false;
+}
+
+$(document).keydown(onKeyDown);
+$(document).keyup(onKeyUp);
+
+
+//*********** COLLISION DETECTION ************//
