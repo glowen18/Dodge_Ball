@@ -89,7 +89,7 @@ function drawGuy() {
 
   $(document).ready(function(){
     $("#myGuy").focus();
-    ("#myGuy").on('keydown', function(event){
+    $("#myGuy").on('keydown', function(event){
       switch (event.which){
         case 37:
           $('#myGuy').stop().animate({
