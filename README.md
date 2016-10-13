@@ -3,10 +3,16 @@
 ###Developed by Gaye Lowenstein 10/06/16
 ###
 
+<<<<<<< HEAD
 _WireFrame_
 
 ![wire_frame](project_01_game/assets/wireframe_dodgeball.png)
 
+=======
+_Wireframe_  
+
+![](assets/wireframe.png)
+>>>>>>> master
 
 _Objective_
 
