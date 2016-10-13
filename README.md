@@ -3,6 +3,10 @@
 ###Developed by Gaye Lowenstein 10/06/16
 ###
 
+_Wireframe_  
+
+![](assets/wireframe.png)
+
 _Objective_
 
 The objective of the game is to move around the board and avoid getting hit by the incoming balls for as long as possible.  
