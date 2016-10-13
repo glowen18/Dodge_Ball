@@ -5,8 +5,9 @@ var start = $('#start').on('click', startGame);
 var width = $('#myCanvas').width();
 var height = $('#myCanvas').height();
 
-var score;
-var timer;
+var score = 0;
+var reset;
+var startTime = new Date().getTime();
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
@@ -28,10 +29,6 @@ function startGame(){
   setInterval(reDraw, 25);
   // $('#start').off();
 };
-
-function endGame(){
-
-}
 
 //********* DRAW the CIRCLES on the CANVAS ********//
 function drawGrid() {
@@ -92,9 +89,18 @@ var drawBall = function(){
   ctx.closePath();
 }
 
+// ******** DRAW the SQUARE ********//
 function drawBlock(){
   ctx.fillRect(block_x,block_y,block_w,block_h);
 }
+
+// ******** DRAW the SCORE ********//
+function drawScore(){
+  ctx.font = "36px Arial";
+  ctx.fillStyle = '#000000';
+  ctx.fillText("Score: " +score, 42, 54);
+}
+
 
 // ******** ReDraw the CANVAS ********//
 function reDraw() {
@@ -102,6 +108,7 @@ function reDraw() {
   drawBall();
   drawGrid();
   drawBlock();
+  drawScore();
 
 // ******** Move the Ball *************//
   if(x + dx > canvas.width || x + dx < 0) {
@@ -144,15 +151,12 @@ function reDraw() {
        y < block_y + block_h &&
        y + 10 > block_y) {
          alert("Game Over!!!");
-         redraw();
     }
 
 //   setTimeout(function(){
 //     alert(message);
 //   }, 1000);
 // }
-
-
   }
 function randomNumber(){
   return Math.floor((Math.random() * 480) + 1);
