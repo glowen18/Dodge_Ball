@@ -1,13 +1,16 @@
 // *********** Draw the playground box **************
 var canvas = $('#myCanvas')[0];
 var ctx = canvas.getContext('2d');
-var start = $('#start').on('click', startGame);
 var width = $('#myCanvas').width();
 var height = $('#myCanvas').height();
 
-var score = 0;
-var reset;
+var start = $('#start').on('click', startGame);
+// var reset = $('#reset').on('click', resetGame);
 var startTime = new Date().getTime();
+var lives;
+
+var score = 0;
+
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
@@ -24,66 +27,82 @@ var block_y = 285; //y position of block
 var block_h = 30;  // block height
 var block_w = 30;  // block width
 
-// ******** DRAW A TIMER ************
-var secs = 0;
+//******** DRAW the SCORE ********//
+// function drawScore(){
+//   ctx.font = "36px Arial";
+//   ctx.fillStyle = '#000000';
+//   ctx.fillText("Score: " +score, 42, 54);
+// }
+
+// ******** WIN LOGIC ************
+var secs = 10;
 var id = setInterval(function(){
-    secs++; console.log(secs);
-  if(secs> 5){
+    secs--; console.log(secs);
+  if(!secs){
     clearInterval(id);
-    alert('Total Time: ' + secs + ' seconds');
-   }
-}, 1000);
+    alert('You Win!');
+    }
+  }, 1000);
+
 //******** START GAME ***********//
 function startGame(){
-  setInterval(reDraw, 25);
+  lives = 1
+  window.play = setInterval(reDraw, 25);
   // $('#start').off();
 };
+
+// ******** RESET GAME ***********//
+// function resetGame(){
+//   $('#reset').click(function(){
+//     $('#gameOver').fadeOut();
+//   })
+// };
 
 //********* DRAW the CIRCLES on the CANVAS ********//
 function drawGrid() {
   ctx.beginPath();
-  ctx.arc(200, 180, 25, 0, 2*Math.PI, true);
+  ctx.arc(100, 80, 25, 0, 2*Math.PI, true);
   ctx.lineWidth = 5;
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(300, 180, 25, 0, 2*Math.PI, true);
+  ctx.arc(300, 80, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(400, 180, 25, 0, 2*Math.PI, true);
+  ctx.arc(500, 80, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(200, 300, 25, 0, 2*Math.PI, true);
+  ctx.arc(100, 280, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(300, 300, 25, 0, 2*Math.PI, true);
+  ctx.arc(300, 280, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(400, 300, 25, 0, 2*Math.PI, true);
+  ctx.arc(500, 280, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(200, 420, 25, 0, 2*Math.PI, true);
+  ctx.arc(100, 480, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(300, 420, 25, 0, 2*Math.PI, true);
+  ctx.arc(300, 480, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(400, 420, 25, 0, 2*Math.PI, true);
+  ctx.arc(500, 480, 25, 0, 2*Math.PI, true);
   ctx.closePath();
   ctx.stroke();
 }
@@ -103,27 +122,21 @@ function drawBlock(){
   ctx.fillRect(block_x,block_y,block_w,block_h);
 }
 
-// ******** DRAW the SCORE ********//
-function drawScore(){
-  ctx.font = "36px Arial";
-  ctx.fillStyle = '#000000';
-  ctx.fillText("Score: " +score, 42, 54);
-}
-
-
-
-
 // ******** ReDraw the CANVAS ********//
 function reDraw() {
+  if(!secs){
+    clearInterval(window.play)
+}
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if(lives){
   drawBall();
   drawGrid();
   drawBlock();
-  drawScore();
-
+  // drawScore();
+}
 // ******** Move the Ball *************//
   if(x + dx > canvas.width || x + dx < 0) {
-    console.log('hit the side');
       x = randomNumber();
       var random = randomNumber()
       if(random % 2) {
@@ -135,7 +148,6 @@ function reDraw() {
     }
 
     if(y + dy > canvas.height || y + dy < 0) {
-      console.log('hit the top or bottom');
       y = randomNumber();
       var random = randomNumber()
       if(random % 2) {
@@ -150,25 +162,27 @@ function reDraw() {
 
 // ******** Move BLOCK ********//
 
-    if (rightKey && block_x + block_w <= 410) block_x += 10;
-      else if (leftKey && block_x > 186) block_x -= 10;
+    if (rightKey && block_x + block_w <= 550) block_x += 10;
+      else if (leftKey && block_x > 50) block_x -= 10;
 
-    if (upKey && block_y > 170) block_y -= 10;
-      else if (downKey && block_y < 405) block_y += 10;
+    if (upKey && block_y > 50) block_y -= 10;
+      else if (downKey && block_y < 550) block_y += 10;
 
     //*********** COLLISION DETECTION ************//
     if(x < block_x + block_w &&
        x + 10 > block_x &&
        y < block_y + block_h &&
        y + 10 > block_y) {
-         alert("Game Over!!!");
+      // lives--
+         alert('Game Over!');
+        //  reDraw();
     }
 
 //   setTimeout(function(){
 //     alert(message);
 //   }, 1000);
-// }
-  }
+}
+
 function randomNumber(){
   return Math.floor((Math.random() * 480) + 1);
 }

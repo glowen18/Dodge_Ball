@@ -1,34 +1,26 @@
-#Project 1 - Make a Game - Dodge Balls
+#Project 1 - Dodge Balls
 
 ###Developed by Gaye Lowenstein 10/06/16
 ###
 
-
-_Wireframe_  
-
-![](assets/wireframe.png)
-
 _Objective_
 
-The objective of the game is to move around the board and avoid getting hit by the incoming balls for as long as possible.  
+The objective of the game is to move around and avoid getting hit by the incoming ball for as long as possible.  
 
-If two players, the winner is the player that wins 3 out of 5 games.
+* Move block to avoid getting hit by incoming ball.
+* Win by outlasting the timer.
+* Lose by getting hit before time ends.
 
-* Move player to avoid getting hit by incoming balls.
-* 1-Player: Win by outlasting the timer.
-* 2-Players: Win by lasting the longest without getting hit by a ball in a best of 5 contest.
+_Installation Instructions_
 
-_Simple Game_
+* Clone the repo with the following: git@github.com:glowen18/glowen18.git
+* Open the index.html in your favorite browser
+* Enjoy!  
 
-* One Board
-* Balls come out from each side of the board
-* One ball at a time
+_Links_
 
-_Advanced Game_
-
-* Choose board size
-* Choose level of difficulty
-* More than one ball can come out at a time
+* Trello Link: https://trello.com/b/EaXbehpk/project-1-dodge-balls
+* Dodge Ball Link: https://glowen18.github.io/glowen18/
 
 _Technologies Used_
 
@@ -40,15 +32,10 @@ _Technologies Used_
 
 _Approach To Building Game_  
 
-_Variables_
+1. Started by creating separate HTML, CSS & JS files.
+2. In the HTML files did the following:
 
-* Board
-* Player(s)
-* Balls
-* Timer
-* Stored scores
-
-_Functions_
+* Setup basic HTML
 
 * Load game
 * Start game
@@ -58,3 +45,11 @@ _Functions_
 * Shoot balls out from each side of the board
 * Congratulate the winner
 * Condolences to the loser
+
+3. Created Win Logic using conditional statements.
+
+4. Created Reset button to start a new game.
+
+_Wireframe_  
+
+![](assets/wireframe.png)
