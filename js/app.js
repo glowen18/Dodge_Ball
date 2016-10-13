@@ -78,7 +78,7 @@ function drawGrid() {
 drawGrid();
 
 // ******** DRAW the BALL ********//
-function drawBall(){
+var drawBall = function(){
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = '#00ddff';
@@ -96,7 +96,7 @@ function reDraw() {
   drawBall();
   drawGrid();
   drawBlock();
-  // drawGuy();
+
 // ******** Move the Ball *************//
   if(x + dx > canvas.width || x + dx < 0) {
     console.log('hit the side');
@@ -125,11 +125,28 @@ function reDraw() {
     y += dy;
 
 // ******** Move BLOCK ********//
+
     if (rightKey && block_x + block_w <= 410) block_x += 10;
       else if (leftKey && block_x > 186) block_x -= 10;
 
     if (upKey && block_y > 170) block_y -= 10;
       else if (downKey && block_y < 405) block_y += 10;
+
+    //*********** COLLISION DETECTION ************//
+
+
+    if(x < block_x + block_w &&
+       x + 10 > block_x &&
+       y < block_y + block_h &&
+       y + 10 > block_y) {
+         alert("collision");
+    }
+function alertWithoutNotice(message) {
+  setTimeout(function(){
+    alert(message);
+  }, 1000);
+}
+
 
   }
 function randomNumber(){
@@ -152,43 +169,3 @@ function onKeyUp(evt) {
 
 $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
-
-
-  //*********** COLLISION DETECTION ************//
-
-
-
-
-
-// setInterval(function(){
-//   var block;
-//   var circle;
-
-//   block.top = $('#block').offset().top;
-//   block.left = $('#block')offset().left;
-//   block.right = Number($('#block').offset().left);
-//   Number($('#block').width());
-//   block.bottom = Number($('#block').offset().top);
-//
-//   circle.top = $('#circle').offset().top;
-//   circle.left = $('#circle')offset().left;
-//   circle.right = Number($('#circle').offset().left);
-//   Number($('#circle').width());
-//   circle.bottom = Number($('#circle').offset().top);
-// }, 1000);
-
-
-
-  // function collisionDetection(){
-  //   for (i=0; i<block_w; i++){
-  //     for (j=0; j<block_h; j++){
-  //       var b = blocks[i][j];
-  //
-  //     if(x > b.x && x < b.x+block_w) && y > b.y && y < b.y+block_h) {
-  //       dy = -dy;
-  //
-  //     }
-  //    }
-  //   }
-  // }
-  // collisionDetection();
