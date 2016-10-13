@@ -24,6 +24,15 @@ var block_y = 285; //y position of block
 var block_h = 30;  // block height
 var block_w = 30;  // block width
 
+// ******** DRAW A TIMER ************
+var secs = 0;
+var id = setInterval(function(){
+    secs++; console.log(secs);
+  if(secs> 5){
+    clearInterval(id);
+    alert('Total Time: ' + secs + ' seconds');
+   }
+}, 1000);
 //******** START GAME ***********//
 function startGame(){
   setInterval(reDraw, 25);
@@ -100,6 +109,8 @@ function drawScore(){
   ctx.fillStyle = '#000000';
   ctx.fillText("Score: " +score, 42, 54);
 }
+
+
 
 
 // ******** ReDraw the CANVAS ********//
