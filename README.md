@@ -7,7 +7,6 @@
 _Wireframe_  
 
 ![](assets/wireframe.png)
->>>>>>> master
 
 _Objective_
 
