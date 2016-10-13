@@ -139,13 +139,13 @@ function reDraw() {
        x + 10 > block_x &&
        y < block_y + block_h &&
        y + 10 > block_y) {
-         alert("collision");
+         alert("Game Over!!!");
     }
-function alertWithoutNotice(message) {
-  setTimeout(function(){
-    alert(message);
-  }, 1000);
-}
+// function alertWithoutNotice(message) {
+//   setTimeout(function(){
+//     alert(message);
+//   }, 1000);
+// }
 
 
   }
