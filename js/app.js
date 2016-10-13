@@ -140,8 +140,9 @@ function reDraw() {
        y < block_y + block_h &&
        y + 10 > block_y) {
          alert("Game Over!!!");
+         redraw();
     }
-    
+
 //   setTimeout(function(){
 //     alert(message);
 //   }, 1000);
