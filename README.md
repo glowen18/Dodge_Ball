@@ -3,6 +3,11 @@
 ###Developed by Gaye Lowenstein 10/06/16
 ###
 
+_WireFrame_
+
+![wire_frame](project_01_game/assets/wireframe_dodgeball.png)
+
+
 _Objective_
 
 The objective of the game is to move around the board and avoid getting hit by the incoming balls for as long as possible.  
@@ -24,6 +29,16 @@ _Advanced Game_
 * Choose board size
 * Choose level of difficulty
 * More than one ball can come out at a time
+
+_Technologies Used_
+
+* HTML
+* CSS
+* Javascript
+* jQuery
+* CANVAS
+
+_Approach To Building Game_  
 
 _Variables_
 

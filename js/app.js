@@ -5,22 +5,21 @@ var start = $('#start').on('click', startGame);
 var width = $('#myCanvas').width();
 var height = $('#myCanvas').height();
 
-// var img = new Image();
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
 var dy = -2;
 
+//********* Create BLOCK & BLOCK Movement ********//
 var rightKey = false;
 var leftKey = false;
 var upKey = false;
 var downKey = false;
-var block_x = canvas.width / 2 - 15;
-var block_y = canvas.height / 2 - 15;
-var block_h = 30;
-var block_w = 30;
 
-// img.src = "./assets/myguy.jpg"
+var block_x = 285; //x position of block
+var block_y = 285; //y position of block
+var block_h = 30;  // block height
+var block_w = 30;  // block width
 
 //******** START GAME ***********//
 function startGame(){
@@ -28,7 +27,7 @@ function startGame(){
   $('#start').off();
 };
 
-//create the circles on the canvas
+//********* DRAW the CIRCLES on the CANVAS ********//
 function drawGrid() {
   ctx.beginPath();
   ctx.arc(200, 180, 25, 0, 2*Math.PI, true);
@@ -79,7 +78,7 @@ function drawGrid() {
 drawGrid();
 
 // ******** DRAW the BALL ********//
-function createBall(){
+function drawBall(){
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = '#00ddff';
@@ -87,15 +86,14 @@ function createBall(){
   ctx.closePath();
 }
 
-// function drawGuy(){
-//   ctx.drawImage(img, 280, 280, 50, 50)
-// }
+function drawBlock(){
+  ctx.fillRect(block_x,block_y,block_w,block_h);
+}
 
-
-// ******** ReDraw MOVING the BALL ********//
+// ******** ReDraw the CANVAS ********//
 function reDraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  createBall();
+  drawBall();
   drawGrid();
   drawBlock();
   // drawGuy();
@@ -125,18 +123,17 @@ function reDraw() {
     }
     x += dx;
     y += dy;
+
+// ******** Move BLOCK ********//
     if (rightKey && block_x + block_w <= 410) block_x += 10;
-  else if (leftKey && block_x > 186) block_x -= 10;
+      else if (leftKey && block_x > 186) block_x -= 10;
+
     if (upKey && block_y > 170) block_y -= 10;
-    else if (downKey && block_y < 405) block_y += 10;
+      else if (downKey && block_y < 405) block_y += 10;
 
   }
 function randomNumber(){
   return Math.floor((Math.random() * 480) + 1);
-}
-
-function drawBlock(){
-  ctx.fillRect(block_x,block_y,block_w,block_h);
 }
 
 function onKeyDown(evt) {
@@ -157,4 +154,41 @@ $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
 
 
-//*********** COLLISION DETECTION ************//
+  //*********** COLLISION DETECTION ************//
+
+
+
+
+
+// setInterval(function(){
+//   var block;
+//   var circle;
+
+//   block.top = $('#block').offset().top;
+//   block.left = $('#block')offset().left;
+//   block.right = Number($('#block').offset().left);
+//   Number($('#block').width());
+//   block.bottom = Number($('#block').offset().top);
+//
+//   circle.top = $('#circle').offset().top;
+//   circle.left = $('#circle')offset().left;
+//   circle.right = Number($('#circle').offset().left);
+//   Number($('#circle').width());
+//   circle.bottom = Number($('#circle').offset().top);
+// }, 1000);
+
+
+
+  // function collisionDetection(){
+  //   for (i=0; i<block_w; i++){
+  //     for (j=0; j<block_h; j++){
+  //       var b = blocks[i][j];
+  //
+  //     if(x > b.x && x < b.x+block_w) && y > b.y && y < b.y+block_h) {
+  //       dy = -dy;
+  //
+  //     }
+  //    }
+  //   }
+  // }
+  // collisionDetection();
