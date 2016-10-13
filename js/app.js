@@ -5,6 +5,8 @@ var start = $('#start').on('click', startGame);
 var width = $('#myCanvas').width();
 var height = $('#myCanvas').height();
 
+var score;
+var timer;
 var x = randomNumber();
 var y = randomNumber();
 var dx = 2;
@@ -24,8 +26,12 @@ var block_w = 30;  // block width
 //******** START GAME ***********//
 function startGame(){
   setInterval(reDraw, 25);
-  $('#start').off();
+  // $('#start').off();
 };
+
+function endGame(){
+
+}
 
 //********* DRAW the CIRCLES on the CANVAS ********//
 function drawGrid() {
@@ -81,7 +87,7 @@ drawGrid();
 var drawBall = function(){
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
-  ctx.fillStyle = '#00ddff';
+  ctx.fillStyle = '#ff0000';
   ctx.fill();
   ctx.closePath();
 }
@@ -133,8 +139,6 @@ function reDraw() {
       else if (downKey && block_y < 405) block_y += 10;
 
     //*********** COLLISION DETECTION ************//
-
-
     if(x < block_x + block_w &&
        x + 10 > block_x &&
        y < block_y + block_h &&
