@@ -8,9 +8,9 @@ body {
   border: 10px solid #00f;
   border-radius: 20px;
   display: block;
+  height: auto;
   margin: auto;
   width: 72%;
-  height: auto;
 }
 
 nav {
@@ -34,12 +34,11 @@ p {
 }
 
 ul.topNav {
-
+  background-color: #ffcc22;
   font-size: 36px;
   list-style: none;
-  padding: 200;
   overflow: hidden;
-  background-color: #ffcc22;
+  padding: 200;
   text-align: center;
 }
 
@@ -49,27 +48,25 @@ ul.topNav li {
 }
 
 ul.topNav li a {
-  display: inline-block;
   color: #461191;
-  text-align: right;
+  display: inline-block;
+  font-size: 18px;
   padding: 14px 36px;
+  text-align: right;
   text-decoration: none;
   transition: 0.3s;
-  font-size: 18px;
 }
 /**  STYLE the LINKS inside the LIST ITEMS **/
 .container {
-  text-align: center;
   margin: auto;
   padding: 20px;
+  text-align: center;
 }
 
 #start {
   border-radius: 25px;
   color: #461191;
   font-size: 26px;
-  top: 100px;
-  left: 25px;
 }
 
 #start:hover {
@@ -82,17 +79,17 @@ ul.topNav li a {
 }
 
 #home:hover {
-  background-image: none !important;
   background-color: #7ea8ea !important;
+  background-image: none !important;
 }
 #about:hover {
-  background-image: none !important;
   background-color: #6398ed !important;
+  background-image: none !important;
 }
 
 #rules:hover {
-  background-image: none !important;
   background-color: #397fef !important;
+  background-image: none !important;
 }
 
 #reset {

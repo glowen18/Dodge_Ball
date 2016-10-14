@@ -35,7 +35,9 @@ Used HTML5 Canvas to render the board and the game pieces. Used Javascript and j
 **Unsolved Problems**
 
 1. Unable to get the navigation links to work.
-2. The reset button only works if you lose the game and does not   restart the timer.
+2. The reset button only works if you lose the game and does not restart the timer.
+3. Want to show the timer on the canvas.
+4. Want to be able to change the timer to play for longer or shorter time.
 
 **Thank You**
 

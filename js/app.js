@@ -30,7 +30,7 @@ var block_y = 285; //y position of block
 var block_h = 40;  // block height
 var block_w = 40;  // block width
 
-//******** START GAME ***********//
+//******** START GAME & WIN LOGIC***********//
 function startGame(){
   game = setInterval(reDraw, 25);
   timer = setInterval(function(){
@@ -102,7 +102,7 @@ function reDraw() {
         block_y += 10;
     }
 
-    //********* COLLISION DETECTION ********//
+    //********* COLLISION DETECTION & WIN LOGIC ********//
     if(x < block_x + block_w &&
        x + 10 > block_x &&
        y < block_y + block_h &&
