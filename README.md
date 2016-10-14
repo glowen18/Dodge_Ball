@@ -38,6 +38,7 @@ Used HTML5 Canvas to render the board and the game pieces. Used Javascript and j
 2. The reset button only works if you lose the game and does not   restart the timer.
 
 **Thank You**
+
 A special thank you to Kate Wood, Mike Wong, Andrew Franklin, Taylor Britton, Viviana Rishe, Andrew Gonzalez, Emily Main, Aaron Goldsmith & Kevin Salazar for helping me to get this game to work!
 
 **Wireframe**  
