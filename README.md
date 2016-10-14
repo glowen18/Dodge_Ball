@@ -13,10 +13,9 @@ The objective of the game is to move around and avoid getting hit by the incomin
 
 _Installation Instructions_
 
-1. Go to my github at https://github.com/glowen18/glowen18
-2. Clone the repository.
-3. Open the index.html in the browser.
-4. Enjoy!  
+1. Clone this repository.
+2. Open the index.html in the browser.
+3. Enjoy!  
 
 _Links_
 

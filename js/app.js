@@ -8,14 +8,15 @@ var start = $('#start').on('click', startGame);
 // var reset = $('#reset').on('click', resetGame);
 var startTime = new Date().getTime();
 var lives;
-
+var game;
 var score = 0;
+var reset;
 
 var x = randomNumber();
 var y = randomNumber();
-var dx = 2;
-var dy = -2;
-
+var dx = 4;
+var dy = -4;
+var radius = 18;
 //********* Create BLOCK & BLOCK Movement ********//
 var rightKey = false;
 var leftKey = false;
@@ -36,18 +37,19 @@ var block_w = 30;  // block width
 
 // ******** WIN LOGIC ************
 var secs = 10;
-var id = setInterval(function(){
+var timer = setInterval(function(){
     secs--; console.log(secs);
   if(!secs){
-    clearInterval(id);
+    clearInterval(timer);
+    clearInterval(game);
     alert('You Win!');
     }
   }, 1000);
 
 //******** START GAME ***********//
 function startGame(){
-  lives = 1
-  window.play = setInterval(reDraw, 25);
+  // lives = 1
+  game = setInterval(reDraw, 25);
   // $('#start').off();
 };
 
@@ -111,10 +113,13 @@ drawGrid();
 // ******** DRAW the BALL ********//
 var drawBall = function(){
   ctx.beginPath();
-  ctx.arc(x, y, 10, 0, Math.PI*2);
+  ctx.arc(x, y, radius, 0, Math.PI*2);
   ctx.fillStyle = '#ff0000';
   ctx.fill();
   ctx.closePath();
+  x += dx;
+  y += dy;
+
 }
 
 // ******** DRAW the SQUARE ********//
@@ -125,63 +130,77 @@ function drawBlock(){
 // ******** ReDraw the CANVAS ********//
 function reDraw() {
   if(!secs){
+    alert('You Win!');
     clearInterval(window.play)
-}
+  }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if(lives){
+  // if(lives){
   drawBall();
   drawGrid();
   drawBlock();
   // drawScore();
-}
+// }
 // ******** Move the Ball *************//
-  if(x + dx > canvas.width || x + dx < 0) {
-      x = randomNumber();
-      var random = randomNumber()
-      if(random % 2) {
-        y = 0
-      } else {
-        y = canvas.height
-      }
+  if(x + dx > canvas.width-radius || x + dx < 0) {
+      // x = randomNumber();
+      // var random = randomNumber()
+      // if(random % 2) {
+      //   y = 0
+      // } else {
+      //   y = canvas.height
+      // }
       dx = -dx;
-    }
+  }
 
-    if(y + dy > canvas.height || y + dy < 0) {
-      y = randomNumber();
-      var random = randomNumber()
-      if(random % 2) {
-        x = 0
-      } else {
-        x = canvas.width
-    }
-      dy = -dy;
-    }
-    x += dx;
-    y += dy;
+  if(y + dy > canvas.height-radius || y + dy < 0) {
+  //   y = randomNumber();
+  //   var random = randomNumber()
+  //   if(random % 2) {
+  //     x = 0
+  //   } else {
+  //     x = canvas.width
+  // }
+    dy = -dy;
+  }
+
+    // x += dx;
+    // y += dy;
 
 // ******** Move BLOCK ********//
 
-    if (rightKey && block_x + block_w <= 550) block_x += 10;
-      else if (leftKey && block_x > 50) block_x -= 10;
+  if (rightKey && block_x + block_w <= 550) {
+    block_x += 10;
+  } else if (leftKey && block_x > 50) {
+    block_x -= 10;
+  }
 
-    if (upKey && block_y > 50) block_y -= 10;
-      else if (downKey && block_y < 550) block_y += 10;
+  if (upKey && block_y > 50) {
+    block_y -= 10;
+  }
+    else if (downKey && block_y < 550) {
+      block_y += 10;
+  }
 
-    //*********** COLLISION DETECTION ************//
-    if(x < block_x + block_w &&
-       x + 10 > block_x &&
-       y < block_y + block_h &&
-       y + 10 > block_y) {
-      // lives--
-         alert('Game Over!');
+  //*********** COLLISION DETECTION ************//
+  if(x < block_x + block_w &&
+     x + 10 > block_x &&
+     y < block_y + block_h &&
+     y + 10 > block_y) {
+    // lives--
+      alert('Game Over!');
+      clearInterval(timer);
+      clearInterval(game);
+
+    }
         //  reDraw();
+
     }
 
 //   setTimeout(function(){
 //     alert(message);
 //   }, 1000);
-}
+
 
 function randomNumber(){
   return Math.floor((Math.random() * 480) + 1);
