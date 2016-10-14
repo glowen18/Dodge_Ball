@@ -5,7 +5,19 @@
 
 **Objective**
 
-The objective of the game is to move around the board and avoid getting hit by the incoming ball before the time runs out.  
+The objective of the game is to move around the board and avoid getting hit by the incoming ball before the time runs out.
+
+**MVP**
+
+*  Render a game board with HTML Canvas.
+*  To be able to start and reset the game.
+*  Create a ball and a block(player) to move around the board.
+*  Create win-logic that determines a winner or game-over.
+
+**Reach Goals**
+
+1.  Be able to adjust the timer to increase or decrease time and to count up or down.
+2.  Have different levels of skill with the ball moving faster and multiple balls moving on the gameboard.
 
 **Approach To Building The Game**
 
