@@ -5,16 +5,12 @@
 
 **_Objective_**
 
-The objective of the game is to move around the board and avoid getting hit by the incoming ball for before the time runs out.  
-
-* Move block to avoid getting hit by incoming ball.
-* Win by outlasting the timer.
-* Lose by getting hit before time ends.
+The objective of the game is to move around the board and avoid getting hit by the incoming ball before the time runs out.  
 
 **_Approach To Building Game_**
 
 Started by creating separate HTML, CSS & JS files.
-Used HTML5 Canvas to render the board and the game pieces. I used Javascript and jQuery to create functions to trigger events and CSS to style the game.
+Used HTML5 Canvas to render the board and the game pieces. Used Javascript and jQuery to create functions to trigger events and CSS to style the game.
 
 **_Technologies Used_**
 
