@@ -5,7 +5,7 @@ var width = $('#myCanvas').width();
 var height = $('#myCanvas').height();
 
 var start = $('#start').on('click', startGame);
-// var reset = $('#reset').on('click', resetGame);
+var reset = $('#reset').on('click', resetGame);
 var startTime = new Date().getTime();
 var lives;
 var game;
@@ -37,29 +37,40 @@ var block_w = 30;  // block width
 
 // ******** WIN LOGIC ************
 var secs = 10;
-var timer = setInterval(function(){
-    secs--; console.log(secs);
-  if(!secs){
-    clearInterval(timer);
-    clearInterval(game);
-    alert('You Win!');
-    }
-  }, 1000);
-
+var timer;
 //******** START GAME ***********//
 function startGame(){
   // lives = 1
   game = setInterval(reDraw, 25);
+  timer = setInterval(function(){
+      secs--; console.log(secs);
+    if(!secs){
+      clearInterval(timer);
+      clearInterval(game);
+      alert('You Win!');
+      }
+    }, 1000);
   // $('#start').off();
 };
+function resetGame(){
+  block_x = 285; //x position of block
+  block_y = 285; //y position of block
+  x = randomNumber();
+  y = randomNumber();
+    clearInterval(timer);
+    clearInterval(game);
+    alert('ResetGame');
 
+  game = setInterval(reDraw, 25);
+  
+  // }
+}
 // ******** RESET GAME ***********//
 // function resetGame(){
 //   $('#reset').click(function(){
 //     $('#gameOver').fadeOut();
 //   })
 // };
-
 //********* DRAW the CIRCLES on the CANVAS ********//
 function drawGrid() {
   ctx.beginPath();

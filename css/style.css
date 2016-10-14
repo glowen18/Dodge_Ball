@@ -23,14 +23,29 @@ h3 {
   text-align: center;
 }
 
-ul {
-  color: #461191;
+ul.topNav {
   font-size: 18px;
-  list-style: disc, outside, none;
-  padding-left: 240px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
+ul.topNav li {
+  float: left;
+}
 
+ul.topNav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+}
+/**  STYLE the LINKS inside the LIST ITEMS **/
 #start {
   border-radius: 25px;
   color: #461191;
