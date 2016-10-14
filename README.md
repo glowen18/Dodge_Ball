@@ -3,39 +3,43 @@
 ###Developed by Gaye Lowenstein 10/06/16
 ###
 
-**_Objective_**
+**Objective**
 
 The objective of the game is to move around the board and avoid getting hit by the incoming ball before the time runs out.  
 
-**_Approach To Building Game_**
+**Approach To Building The Game**
 
 Started by creating separate HTML, CSS & JS files.
-Used HTML5 Canvas to render the board and the game pieces. Used Javascript and jQuery to create functions to trigger events and CSS to style the game.
+Used HTML5 Canvas to render the board and the game pieces. Used Javascript and jQuery to create functions to trigger events and CSS to style the game. Used Git and Git Hub to save the project each time an update and/or change was made.
 
-**_Technologies Used_**
+**Technologies Used**
 
 * HTML
 * CSS
 * Javascript
 * jQuery
 * HTML Canvas
+* Git & Git Hub
 
-**_Links_**
+**Links**
 
 * [Go to Trello](https://trello.com/b/EaXbehpk/project-1-dodge-balls)
 * [Go to Dodge The Ball](https://glowen18.github.io/glowen18/)
 
-**_Installation Instructions_**
+**Installation Instructions**
 
 1. Clone this repository.
 2. Open the index.html in the browser.
 3. Enjoy!  
 
-**_Unsolved Problems_**
+**Unsolved Problems**
 
 1. Unable to get the navigation links to work.
 2. The reset button only works if you lose the game and does not   restart the timer.
 
-**_Wireframe_**  
+**Thank You**
+A special thank you to Kate Wood, Mike Wong, Andrew Franklin, Taylor Britton, Viviana Rishe, Andrew Gonzalez, Emily Main, Aaron Goldsmith & Kevin Salazar for helping me to get this game to work!
+
+**Wireframe**  
 
 ![](assets/wireframe.png)
