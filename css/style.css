@@ -1,5 +1,16 @@
 body {
   background-color: #4f8cef;
+  font-family: 'Comic Sans MS';
+}
+
+#myCanvas {
+  background-color: yellow;
+  border: 10px solid #00f;
+  border-radius: 20px;
+  display: block;
+  margin: auto;
+  width: 72%;
+  height: auto;
 }
 
 nav {
@@ -16,56 +27,77 @@ h1 {
   text-decoration: underline;
 }
 
-h3 {
+p {
   color: #461191;
-  font-size: 28px;
-  font-variant: small-caps;
+  font-size: 20px;
   text-align: center;
 }
 
 ul.topNav {
-  font-size: 18px;
+
+  font-size: 36px;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  padding: 200;
   overflow: hidden;
-  background-color: #333;
+  background-color: #ffcc22;
+  text-align: center;
 }
 
 ul.topNav li {
-  float: left;
+  display: inline-block;
+  margin: auto;
 }
 
 ul.topNav li a {
   display: inline-block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+  color: #461191;
+  text-align: right;
+  padding: 14px 36px;
   text-decoration: none;
   transition: 0.3s;
   font-size: 18px;
 }
 /**  STYLE the LINKS inside the LIST ITEMS **/
+.container {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+
 #start {
   border-radius: 25px;
   color: #461191;
-  font-size: 28px;
+  font-size: 26px;
   top: 100px;
   left: 25px;
+}
+
+#start:hover {
+  background-image: none !important;
+  background-color: #ffff00 !important;
+}
+#reset:hover {
+  background-image: none !important;
+  background-color: #ffcc22 !important;
+}
+
+#home:hover {
+  background-image: none !important;
+  background-color: #7ea8ea !important;
+}
+#about:hover {
+  background-image: none !important;
+  background-color: #6398ed !important;
+}
+
+#rules:hover {
+  background-image: none !important;
+  background-color: #397fef !important;
 }
 
 #reset {
   border-radius: 25px;
   color: #461191;
   font-size: 26px;
-}
-
-#myCanvas {
-  background-color: yellow;
-  border: 10px solid #00f;
-  border-radius: 20px;
-  display: block;
-  margin: auto;
-  width: 72%;
-  height: auto;
+  margin-left: 100px;
 }
