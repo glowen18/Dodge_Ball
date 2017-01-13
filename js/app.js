@@ -68,17 +68,17 @@ var interval = setInterval(function() {
 }
 
 //******** START GAME & WIN LOGIC***********//
-// function startGame(){
-//   game = setInterval(reDraw, 25);
-//   timer = setInterval(function(){
-//     secs--; console.log(secs);
-//     if(!secs){
-//       console.log('You Win the Game!');
-//         clearInterval(timer);
-//         clearInterval(game);
-//     }
-//   }, 1000);
-// };
+function startGame(){
+  game = setInterval(reDraw, 25);
+  timer = setInterval(function(){
+    secs--; console.log(secs);
+    if(!secs){
+      console.log('You Win the Game!');
+        clearInterval(timer);
+        clearInterval(game);
+    }
+  }, 1000);
+};
 
 // ******** RESET GAME ************//
 function resetGame(){
