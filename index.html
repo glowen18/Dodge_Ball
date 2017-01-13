@@ -5,20 +5,30 @@
     <title>Dodge Balls</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </head>
 
   <body>
-    <ul class="topNav" id="myNav">
-      <li id="home"><a href="#home">Home</a></li>
-      <li id="about"><a href="#about">About</a></li>
-      <li id="rules"><a href="#rules">Rules</a></li>
-    </ul>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="topNav" id="myNav">
+            <li id="home"><a href="#home">Home</a></li>
+            <li id="about"><a href="#about">About</a></li>
+            <li id="rules"><a href="#rules">Rules</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <h1>Dodge The Ball</h1>
 
       <p>Use your arrow keys to move around the board.<br>
-            WIN by not getting hit by the ball.</p>
+          WIN by not getting hit by the ball.</p>
+
+          <p id="hello">Time left: <span id="count">10</span> secs</p>
+
 
     <div class="container">
       <button type="button" id="start">Start Game</button>

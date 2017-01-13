@@ -16,8 +16,8 @@ The objective of the game is to move around the board and avoid getting hit by t
 
 **Reach Goals**
 
-1.  Be able to adjust the timer to increase or decrease time and to count up or down.
-2.  Have different levels of skill with the ball moving faster and multiple balls moving on the gameboard.
+1. Be able to adjust the timer to increase or decrease time and to count up or down.
+2. Have different levels of skill with the ball moving faster and multiple balls moving on the game board.
 
 **Approach To Building The Game**
 
@@ -26,11 +26,11 @@ Used HTML5 Canvas to render the board and the game pieces. Used Javascript and j
 
 **Technologies Used**
 
-* HTML
-* CSS
+* HTML5
+* CSS3
 * Javascript
 * jQuery
-* HTML Canvas
+* HTML5 Canvas
 * Git & Git Hub
 
 **Links**
@@ -47,9 +47,9 @@ Used HTML5 Canvas to render the board and the game pieces. Used Javascript and j
 **Unsolved Problems**
 
 1. Unable to get the navigation links to work.
-2. The reset button only works if you lose the game and does not restart the timer.
-3. Want to show the timer on the canvas.
-4. Want to be able to change the timer to play for longer or shorter time.
+2. Get the reset button to restart the timer.
+3. Show the timer on the canvas.
+4. Change the timer to play for longer or shorter time.
 
 **Thank You**
 

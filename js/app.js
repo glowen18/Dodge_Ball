@@ -30,18 +30,55 @@ var block_y = 285; //y position of block
 var block_h = 40;  // block height
 var block_w = 40;  // block width
 
-//******** START GAME & WIN LOGIC***********//
-function startGame(){
-  game = setInterval(reDraw, 25);
-  timer = setInterval(function(){
-    secs--; console.log(secs);
-    if(!secs){
-        alert('You Win the Game!');
-        clearInterval(timer);
-        clearInterval(game);
+var counter = 0;
+var interval = setInterval(function() {
+    counter++;
+    // Display 'counter' wherever you want to display it.
+    if (counter == 5) {
+        // Display a login box
+        clearInterval(interval);
     }
+}, 1000);
+
+
+// window.onload = function(){
+  function startGame(){
+    game = setInterval(reDraw, 25);
+    timer = setInterval(function(){
+
+// (function(){
+  var counter = 10;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = counter;
+    }
+    // Display 'counter' wherever you want to display it.
+    if (counter === 0) {
+        alert('You are the big winner!');
+        clearInterval(counter);
+    }
+
   }, 1000);
-};
+
+})();
+
+}
+
+//******** START GAME & WIN LOGIC***********//
+// function startGame(){
+//   game = setInterval(reDraw, 25);
+//   timer = setInterval(function(){
+//     secs--; console.log(secs);
+//     if(!secs){
+//       console.log('You Win the Game!');
+//         clearInterval(timer);
+//         clearInterval(game);
+//     }
+//   }, 1000);
+// };
 
 // ******** RESET GAME ************//
 function resetGame(){
